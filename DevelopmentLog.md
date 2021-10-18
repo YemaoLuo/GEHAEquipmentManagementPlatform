@@ -17,10 +17,14 @@
 + ~~解决controller报错~~
 + ~~登陆页面~~
 + ~~mybatis适配~~
++ 权限拦截器
 
 + 开发小结
-    + bug终于解决了 但不是我解决的 是他自己消失的
-    + ~~不想用mybatis了 这么轻量级的平台 用屁mybatis~~
-    + return ModelAndView 不可以用redirect哦
-    + 找到问题所在了 在mapper生成错误导致一连串的报错
-        + 解决方法 加载mapper映射 配置sessionFactory
+  + bug终于解决了 但不是我解决的 是他自己消失的
+  + ~~不想用mybatis了 这么轻量级的平台 用屁mybatis~~
+  + return ModelAndView 不可以用redirect哦
+  + 找到问题所在了 在mapper生成错误导致一连串的报错
+    + 解决方法 加载mapper映射 配置sessionFactory
+
+---
+

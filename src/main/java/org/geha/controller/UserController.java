@@ -32,7 +32,7 @@ public class UserController {
             msg.setMessage("账号或密码错误!");
             modelAndView.addObject("msg", msg);
             //重定向不然报错 估计是循环提交错误post信息
-            modelAndView.setViewName("redirect:/index.jsp");
+            modelAndView.setViewName("login");
         } else {
             session.setAttribute("user", user);
             modelAndView.addObject("user", user);
