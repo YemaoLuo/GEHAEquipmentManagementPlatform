@@ -9,6 +9,8 @@
     <title>WElCOME</title>
 </head>
 <body>
-<a href="/login.jsp">点击登录</a>
+<div align="center">
+    <img src="/img/logo.png" style="width: 1200px; height: 600px; margin-top: 200px" onclick="location.href = '/login.jsp'"/>
+</div>
 </body>
 </html>

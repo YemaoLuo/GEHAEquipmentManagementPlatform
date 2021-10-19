@@ -6,6 +6,7 @@ package org.geha.mapper;
 */
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.geha.domain.User;
 
@@ -24,4 +25,7 @@ public interface UserMapper {
 
     @Delete("delete from user where name = #{name}")
     public void deleteUserByName(String name);
+
+    @Insert("insert into user values(null, #{name}, #{gender}, #{role}, #{year},  #{password}, #{email}, #{phone})")
+    public void insertUser(User user);
 }

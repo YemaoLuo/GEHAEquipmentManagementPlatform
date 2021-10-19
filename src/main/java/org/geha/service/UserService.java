@@ -5,6 +5,7 @@ package org.geha.service;
   Time: 16:41
 */
 
+import org.geha.domain.Msg;
 import org.geha.domain.User;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface UserService {
     public User findUserByName(String name);
 
     public void deleteUserByName(String name);
+
+    public Msg insertUser(User user);
 }

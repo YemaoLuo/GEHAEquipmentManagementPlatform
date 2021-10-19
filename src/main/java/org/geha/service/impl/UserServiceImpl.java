@@ -5,6 +5,7 @@ package org.geha.service.impl;
   Time: 19:15
 */
 
+import org.geha.domain.Msg;
 import org.geha.domain.User;
 import org.geha.mapper.UserMapper;
 import org.geha.service.UserService;
@@ -36,5 +37,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserByName(String name) {
         userMapper.deleteUserByName(name);
+    }
+
+    @Override
+    public Msg insertUser(User user) {
+        Msg msg = new Msg();
+        User userByName = userMapper.findUserByName(user.getName());
+        if (userByName != null) {
+            msg.setCode(false);
+            msg.setMessage("用户名已存在");
+            return msg;
+        } else {
+            userMapper.insertUser(user);
+            msg.setCode(true);
+            msg.setMessage("添加成功");
+            return msg;
+        }
+
     }
 }

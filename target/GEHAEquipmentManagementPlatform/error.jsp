@@ -393,9 +393,5 @@
         </div>
     </div>
 </div>
-
-<div>
-    <img src="${pageContext.request.contextPath}/img/logo.png" style="width: 600px; height: 350px">
-</div>
 </body>
 </html>

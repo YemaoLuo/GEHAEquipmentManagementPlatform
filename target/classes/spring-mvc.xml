@@ -6,6 +6,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="js/*" location="/js/" />
+    <mvc:resources mapping="img/*" location="/img/" />
 
     <!--静态资源权限开放-->
     <mvc:default-servlet-handler/>
@@ -22,7 +24,7 @@
     <!--拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/user/**"/>
             <mvc:exclude-mapping path="/user/login"/>
             <bean class="org.geha.interceptor.PrivilegeInterceptor"/>
         </mvc:interceptor>

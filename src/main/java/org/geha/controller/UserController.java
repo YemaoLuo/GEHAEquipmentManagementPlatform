@@ -110,4 +110,13 @@ public class UserController {
         }
         return modelAndView;
     }
+
+    @RequestMapping("/insertUser")
+    public ModelAndView insertUser(User user) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = userService.insertUser(user);
+        modelAndView.setViewName("/pages/userCRUD.jsp");
+        modelAndView.addObject("msg_insertUser", msg);
+        return modelAndView;
+    }
 }

@@ -14,7 +14,7 @@
     <input name="name" placeholder="name">
     <input type="submit" value="查询">
 </form>
-<table style="border: black 1px solid; border-collapse:collapse;">
+<table border="1" cellspacing="0" cellpadding="3">
     <tr>
         <th>用户名</th>
         <th>性别</th>
@@ -36,7 +36,7 @@
 <br>
 <hr>
 <h1>Delete</h1>
-<form method="post" action="/user/deleteUserByName">
+<form method="post" action="/user/deleteUserByName" onsubmit="return confirm('确认删除吗?')">
     <input name="name" placeholder="name">
     <input type="submit" value="删除">
 </form>
@@ -44,5 +44,30 @@
 <br>
 <hr>
 <h1>Insert</h1>
+<form id="insert" method="post" action="/user/insertUser" onsubmit="return checkInsert()">
+    <span style="color: red">*</span> <input name="name" placeholder="name" id="name"><br>
+    <span style="color: red">*</span> <input name="gender" placeholder="gender" id="gender"><br>
+    <span style="color: red">*</span> <input name="role" placeholder="role" id="role"><br>
+    &nbsp <input name="year" placeholder="year"><br>
+    &nbsp <input name="password" placeholder="password"><br>
+    &nbsp <input name="phone" placeholder="phone"><br>
+    &nbsp <input name="email" placeholder="email"><br>
+    &nbsp <input type="submit" value="添加">
+</form>
+<span style="color: red" id="msg_insertUser">${msg_insertUser.message}</span>
 </body>
 </html>
+<script>
+    function checkInsert() {
+        let flag = confirm("确认提交吗？");
+        let name = document.getElementById("name").value;
+        let gender = document.getElementById("gender").value;
+        let role = document.getElementById("role").value;
+        //不可以单纯对比null 好像为undefined
+        if (!!!name || !!!gender || !!!role) {
+            flag = false;
+            document.getElementById("msg_insertUser").innerText = "缺少必要信息";
+        }
+        return flag;
+    }
+</script>
