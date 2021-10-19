@@ -7,7 +7,11 @@ package org.geha.service;
 
 import org.geha.domain.User;
 
+import java.util.List;
+
 public interface UserService {
 
     public User login(User user);
+
+    public List<User> findAllUser();
 }

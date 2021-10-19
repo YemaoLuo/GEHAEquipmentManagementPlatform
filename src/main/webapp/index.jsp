@@ -6,9 +6,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>noPrivilige</title>
+    <title>WElCOME</title>
 </head>
 <body>
-<a href="/pages/login.jsp">点击登录</a>
+<a href="/login.jsp">点击登录</a>
 </body>
 </html>

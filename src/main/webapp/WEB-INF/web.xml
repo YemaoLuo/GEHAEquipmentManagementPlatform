@@ -45,6 +45,16 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--filter-->
+    <filter>
+        <filter-name>PrivilegeFilter</filter-name>
+        <filter-class>org.geha.filter.PrivilegeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrivilegeFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern>
+    </filter-mapping>
+
     <!--<error-page>
         <error-code>404</error-code>
         <location>/error.jsp</location>

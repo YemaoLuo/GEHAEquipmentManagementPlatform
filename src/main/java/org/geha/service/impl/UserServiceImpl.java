@@ -5,22 +5,26 @@ package org.geha.service.impl;
   Time: 19:15
 */
 
-import org.geha.dao.UserDao;
 import org.geha.domain.User;
 import org.geha.mapper.UserMapper;
 import org.geha.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
-    @Autowired
     private UserMapper userMapper;
 
     public User login(User user) {
-        return userDao.login(user);
+        return userMapper.login(user);
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        return userMapper.findAllUser();
     }
 }

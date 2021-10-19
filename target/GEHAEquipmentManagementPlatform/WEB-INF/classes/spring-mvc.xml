@@ -13,10 +13,19 @@
     <!--组件扫描-->
     <context:component-scan base-package="org.geha.controller"/>
 
-    <!--内部资源视图解析器-->
+    <!--内部资源视图解析器
     <bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/pages/"/>
         <property name="suffix" value=".jsp"/>
-    </bean>
+    </bean>&ndash;&gt;-->
+    
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <bean class="org.geha.interceptor.PrivilegeInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

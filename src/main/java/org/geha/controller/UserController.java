@@ -31,13 +31,30 @@ public class UserController {
             msg.setCode(false);
             msg.setMessage("账号或密码错误!");
             modelAndView.addObject("msg", msg);
-            //重定向不然报错 估计是循环提交错误post信息
-            modelAndView.setViewName("login");
+            modelAndView.setViewName("/login.jsp");
         } else {
             session.setAttribute("user", user);
             modelAndView.addObject("user", user);
-            modelAndView.setViewName("home");
+            modelAndView.setViewName("/pages/home.jsp");
         }
         return modelAndView;
+    }
+
+    @RequestMapping("/findAllUser")
+    public ModelAndView findAllUser(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        User user = (User) session.getAttribute("user");
+        if (user.getRole().equals("管理员")) {
+            modelAndView.setViewName("/pages/userList.jsp");
+            modelAndView.addObject("userList", userService.findAllUser());
+            return modelAndView;
+        } else {
+            msg.setCode(false);
+            msg.setMessage("您没有权限");
+            modelAndView.addObject("msg_findAllUser", msg);
+            modelAndView.setViewName("/pages/home.jsp");
+            return modelAndView;
+        }
     }
 }
