@@ -10,7 +10,7 @@
     }
 
     function userCRUD() {
-        window.location.href = "${pageContext.request.contextPath}/user/userCRUD"
+        window.location.href = "${pageContext.request.contextPath}/user/userCRUDPage"
     }
 </script>
 <html>

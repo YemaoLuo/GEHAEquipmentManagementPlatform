@@ -57,4 +57,38 @@ public class UserController {
             return modelAndView;
         }
     }
+
+    @RequestMapping("/userCRUDPage")
+    public ModelAndView userCRUDPage(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        User user = (User) session.getAttribute("user");
+        if (user.getRole().equals("管理员")) {
+            modelAndView.setViewName("/pages/userCRUD.jsp");
+            return modelAndView;
+        } else {
+            msg.setCode(false);
+            msg.setMessage("您没有权限");
+            modelAndView.addObject("msg_userCRUD", msg);
+            modelAndView.setViewName("/pages/home.jsp");
+            return modelAndView;
+        }
+    }
+
+    @RequestMapping("/findUserByName")
+    public ModelAndView findUserByName(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        User user = userService.findUserByName(name);
+        if (user == null) {
+            msg.setCode(false);
+            msg.setMessage("无此用户信息");
+            modelAndView.addObject("msg_findUserByName", msg);
+            modelAndView.setViewName("/pages/userCRUD.jsp");
+        } else {
+            modelAndView.addObject("user_search", user);
+            modelAndView.setViewName("/pages/userCRUD.jsp");
+        }
+        return modelAndView;
+    }
 }
