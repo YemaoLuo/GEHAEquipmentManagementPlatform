@@ -5,6 +5,7 @@ package org.geha.mapper;
   Time: 19:24
 */
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.geha.domain.User;
 
@@ -20,4 +21,7 @@ public interface UserMapper {
 
     @Select("select * from user where name = #{name}")
     public User findUserByName(String name);
+
+    @Delete("delete from user where name = #{name}")
+    public void deleteUserByName(String name);
 }

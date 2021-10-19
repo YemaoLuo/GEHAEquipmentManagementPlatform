@@ -91,4 +91,23 @@ public class UserController {
         }
         return modelAndView;
     }
+
+    @RequestMapping("/deleteUserByName")
+    public ModelAndView deleteUserByName(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        User user = userService.findUserByName(name);
+        if (user != null) {
+            userService.deleteUserByName(name);
+            msg.setMessage("删除成功");
+            modelAndView.addObject("msg_deleteUserByName", msg);
+            modelAndView.setViewName("/pages/userCRUD.jsp");
+        } else {
+            msg.setCode(false);
+            msg.setMessage("无此用户信息");
+            modelAndView.addObject("msg_deleteUserByName", msg);
+            modelAndView.setViewName("/pages/userCRUD.jsp");
+        }
+        return modelAndView;
+    }
 }

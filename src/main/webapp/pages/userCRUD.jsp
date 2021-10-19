@@ -35,7 +35,14 @@
 </table>
 <br>
 <hr>
-<br>
 <h1>Delete</h1>
+<form method="post" action="/user/deleteUserByName">
+    <input name="name" placeholder="name">
+    <input type="submit" value="删除">
+</form>
+<span style="color: red">${msg_deleteUserByName.message}</span>
+<br>
+<hr>
+<h1>Insert</h1>
 </body>
 </html>

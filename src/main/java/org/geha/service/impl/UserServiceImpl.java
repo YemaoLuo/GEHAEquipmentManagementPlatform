@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
     public User findUserByName(String name) {
         return userMapper.findUserByName(name);
     }
+
+    @Override
+    public void deleteUserByName(String name) {
+        userMapper.deleteUserByName(name);
+    }
 }

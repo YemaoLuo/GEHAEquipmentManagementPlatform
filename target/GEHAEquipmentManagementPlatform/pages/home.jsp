@@ -10,12 +10,7 @@
     }
 
     function userCRUD() {
-        let role = ${user.role};
-        if (role === "管理员") {
-            window.location.href = "${pageContext.request.contextPath}/user/userCRUD"
-        } else {
-            document.getElementById("CRUD_msg").innerText = "您没有权限";
-        }
+        window.location.href = "${pageContext.request.contextPath}/user/userCRUDPage"
     }
 </script>
 <html>
@@ -29,6 +24,6 @@
 <span style="color: red">${msg_findAllUser.message}</span>
 <hr>
 <button onclick="userCRUD()">用户CRUD</button>
-<span style="color: red" id="CRUD_msg"></span>
+<span style="color: red">${msg_userCRUD.message}</span>
 </body>
 </html>
