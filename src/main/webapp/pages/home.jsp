@@ -48,5 +48,8 @@
 <hr>
 <button onclick="equipmentCRUD()">设备CRUD</button>
 <span style="color: red">${msg_equipmentCRUD.message}</span>
+<div style="position: fixed; bottom: 1px;">
+    <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
+</div>
 </body>
 </html>

@@ -25,5 +25,8 @@
         <span id="msg" style="color: red">${msg.message}</span>
     </div>
 </form>
+<div style="position: fixed; bottom: 1px;">
+    <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
+</div>
 </body>
 </html>

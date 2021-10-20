@@ -6,6 +6,7 @@ package org.geha.service.impl;
 */
 
 import org.geha.domain.Equipment;
+import org.geha.domain.Msg;
 import org.geha.mapper.EquipmentMapper;
 import org.geha.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,20 @@ public class EquipmentServiceImpl implements EquipmentService {
     @Override
     public Equipment checkExist(String name) {
         return equipmentMapper.checkExist(name);
+    }
+
+    @Override
+    public Msg deleteEquipmentByName(String name) {
+        Msg msg = new Msg();
+        Equipment equipment = equipmentMapper.checkExist(name);
+        if (equipment == null) {
+            msg.setCode(false);
+            msg.setMessage("设备不存在");
+        } else {
+            equipmentMapper.deleteEquipmentByName(name);
+            msg.setCode(true);
+            msg.setMessage("删除成功");
+        }
+        return msg;
     }
 }

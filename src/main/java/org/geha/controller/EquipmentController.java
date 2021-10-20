@@ -96,4 +96,13 @@ public class EquipmentController {
         modelAndView.setViewName("/pages/home.jsp");
         return modelAndView;
     }
+
+    @RequestMapping("/deleteEquipmentByName")
+    public ModelAndView deleteEquipmentByName(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+        Msg msg = equipmentService.deleteEquipmentByName(name);
+        modelAndView.addObject("msg_deleteEquipmentByName", msg);
+        return modelAndView;
+    }
 }

@@ -6,6 +6,7 @@ package org.geha.mapper;
 */
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.geha.domain.Equipment;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface EquipmentMapper {
 
     @Select("select * from equipment where name = #{name} LIMIT 1")
     public Equipment checkExist(String name);
+
+    @Update("delete from equipment where name = #{name}")
+    public void deleteEquipmentByName(String name);
 }

@@ -34,6 +34,17 @@
 </table>
 <br>
 <hr>
+<h1>Delete</h1>
+<form method="post" action="/equipment/deleteEquipmentByName" onsubmit="return confirm('确认删除吗?')">
+    <input name="name" placeholder="name">
+    <input type="submit" value="删除">
+</form>
+<span style="color: red">${msg_deleteEquipmentByName.message}</span>
+<br>
+<hr>
+<div style="position: fixed; bottom: 1px;">
+    <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
+</div>
 </body>
 </html>
 <script>

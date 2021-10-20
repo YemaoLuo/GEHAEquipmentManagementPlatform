@@ -71,6 +71,9 @@
     &nbsp <input type="submit" value="修改">
 </form>
 <span style="color: red" id="msg_updateUser">${msg_updateUser.message}</span>
+<div style="position: fixed; bottom: 1px;">
+    <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
+</div>
 </body>
 </html>
 <script>
@@ -103,7 +106,7 @@
 <script>
     window.onload = function () {
         document.getElementById("back").onclick = function () {
-           location.href = "/user/toHome";
+            location.href = "/user/toHome";
         }
     }
 </script>

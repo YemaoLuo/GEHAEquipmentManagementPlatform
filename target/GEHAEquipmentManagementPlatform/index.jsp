@@ -11,7 +11,11 @@
 <body>
 <div align="center">
     <img src="/img/logo.png" style="width: 1200px; height: 600px; margin-top: 150px"
-         onclick="location.href = '/login.jsp'"/>
+         onclick="location.href = '/login.jsp'"/><br>
+    <span style="font-size: 20px">点击图片登录</span>
+</div>
+<div style="position: fixed; bottom: 1px;">
+    <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>
 </body>
 </html>

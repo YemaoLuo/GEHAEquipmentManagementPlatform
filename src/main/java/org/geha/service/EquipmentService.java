@@ -6,6 +6,7 @@ package org.geha.service;
 */
 
 import org.geha.domain.Equipment;
+import org.geha.domain.Msg;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface EquipmentService {
     public List<Equipment> findEquipmentByName(Equipment equipment);
 
     public Equipment checkExist(String name);
+
+    public Msg deleteEquipmentByName(String name);
 }
