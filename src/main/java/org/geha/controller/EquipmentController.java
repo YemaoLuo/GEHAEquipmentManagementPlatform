@@ -105,4 +105,14 @@ public class EquipmentController {
         modelAndView.addObject("msg_deleteEquipmentByName", msg);
         return modelAndView;
     }
+
+    @RequestMapping("/insertEquipment")
+    public ModelAndView insertEquipment(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        equipmentService.insertEquipment(name);
+        Msg msg = new Msg("添加成功", true);
+        modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+        modelAndView.addObject("msg_insertEquipment", msg);
+        return modelAndView;
+    }
 }

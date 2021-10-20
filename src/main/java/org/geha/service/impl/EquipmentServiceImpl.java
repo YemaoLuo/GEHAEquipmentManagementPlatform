@@ -49,4 +49,13 @@ public class EquipmentServiceImpl implements EquipmentService {
         }
         return msg;
     }
+
+    @Override
+    public void insertEquipment(String name) {
+        Equipment equipment = new Equipment();
+        Msg msg = new Msg();
+        equipment.setName(name);
+        equipment.setInUse(true);
+        equipmentMapper.insertEquipment(equipment);
+    }
 }

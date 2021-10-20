@@ -19,4 +19,6 @@ public interface EquipmentService {
     public Equipment checkExist(String name);
 
     public Msg deleteEquipmentByName(String name);
+
+    public void insertEquipment(String name);
 }

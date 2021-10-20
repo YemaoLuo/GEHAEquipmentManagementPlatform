@@ -5,6 +5,7 @@ package org.geha.mapper;
   Time: 9:29
 */
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.geha.domain.Equipment;
@@ -24,4 +25,7 @@ public interface EquipmentMapper {
 
     @Update("delete from equipment where name = #{name}")
     public void deleteEquipmentByName(String name);
+
+    @Insert("insert into equipment values(null, #{name}, #{inUse})")
+    public void insertEquipment(Equipment equipment);
 }

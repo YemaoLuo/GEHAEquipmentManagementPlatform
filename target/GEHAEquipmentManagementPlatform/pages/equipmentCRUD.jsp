@@ -42,6 +42,14 @@
 <span style="color: red">${msg_deleteEquipmentByName.message}</span>
 <br>
 <hr>
+<h1>Insert</h1>
+<form id="insert" method="post" action="/equipment/insertEquipment" onsubmit="return checkInsert()">
+    <span style="color: red">*</span> <input name="name" placeholder="name" id="name"><br>
+    &nbsp <input type="submit" value="添加">
+</form>
+<span style="color: red" id="msg_insertUser">${msg_insertEquipment.message}</span>
+<br>
+<hr>
 <div style="position: fixed; bottom: 1px;">
     <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>
@@ -51,10 +59,8 @@
     function checkInsert() {
         let flag = confirm("确认提交吗？");
         let name = document.getElementById("name").value;
-        let gender = document.getElementById("gender").value;
-        let role = document.getElementById("role").value;
         //不可以单纯对比null 好像为undefined
-        if (!!!name || !!!gender || !!!role) {
+        if (!!!name) {
             flag = false;
             document.getElementById("msg_insertUser").innerText = "缺少必要信息";
         }
