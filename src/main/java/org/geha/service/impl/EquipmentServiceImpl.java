@@ -58,4 +58,15 @@ public class EquipmentServiceImpl implements EquipmentService {
         equipment.setInUse(true);
         equipmentMapper.insertEquipment(equipment);
     }
+
+    @Override
+    public Msg updateEquipment(Equipment equipment) {
+        Equipment equipment1 = equipmentMapper.checkExistById(equipment.getId());
+        if (equipment1 == null) {
+            return new Msg("设备不存在", false);
+        } else {
+            equipmentMapper.updateEquipment(equipment);
+            return new Msg("更新成功", true);
+        }
+    }
 }

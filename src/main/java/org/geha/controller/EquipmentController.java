@@ -115,4 +115,13 @@ public class EquipmentController {
         modelAndView.addObject("msg_insertEquipment", msg);
         return modelAndView;
     }
+
+    @RequestMapping("/updateEquipment")
+    public ModelAndView updateEquipment(Equipment equipment) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = equipmentService.updateEquipment(equipment);
+        modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+        modelAndView.addObject("msg_updateEquipment", msg);
+        return modelAndView;
+    }
 }

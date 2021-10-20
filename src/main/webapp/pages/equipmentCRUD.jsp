@@ -50,6 +50,16 @@
 <span style="color: red" id="msg_insertUser">${msg_insertEquipment.message}</span>
 <br>
 <hr>
+<h1>Update</h1>
+<form id="update" method="post" action="/equipment/updateEquipment" onsubmit="return checkUpdate()">
+    <span style="color: red">*</span> <input name="id" placeholder="id" id="id_u"><br>
+    <span style="color: red">*</span> <select name="inUse" id="inUse_u">
+    <option value="true">在库</option>
+    <option value="false">借出</option>
+</select><br>
+    &nbsp <input type="submit" value="修改">
+</form>
+<span style="color: red" id="msg_updateUser">${msg_updateEquipment.message}</span>
 <div style="position: fixed; bottom: 1px;">
     <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>
@@ -69,11 +79,10 @@
 
     function checkUpdate() {
         let flag = confirm("确认更改吗？");
-        let name = document.getElementById("name_u").value;
-        let gender = document.getElementById("gender_u").value;
-        let role = document.getElementById("role_u").value;
+        let id = document.getElementById("id_u").value;
+        let inUse = document.getElementById("inUse_u").value;
         //不可以单纯对比null 好像为undefined
-        if (!!!name || !!!gender || !!!role) {
+        if (!!!id || !!!inUse) {
             flag = false;
             document.getElementById("msg_updateUser").innerText = "缺少必要信息";
         }

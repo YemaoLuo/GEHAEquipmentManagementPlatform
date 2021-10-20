@@ -28,4 +28,10 @@ public interface EquipmentMapper {
 
     @Insert("insert into equipment values(null, #{name}, #{inUse})")
     public void insertEquipment(Equipment equipment);
+
+    @Update("update equipment set inUse = #{inUse} where id = #{id}")
+    public void updateEquipment(Equipment equipment);
+
+    @Select("select * from equipment where id = #{id}")
+    public Equipment checkExistById(int id);
 }

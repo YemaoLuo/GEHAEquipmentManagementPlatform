@@ -21,4 +21,6 @@ public interface EquipmentService {
     public Msg deleteEquipmentByName(String name);
 
     public void insertEquipment(String name);
+
+    public Msg updateEquipment(Equipment equipment);
 }
