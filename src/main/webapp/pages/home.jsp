@@ -9,6 +9,11 @@
         window.location.href = "/user/findAllUser";
     }
 
+    function findAllEquipment() {
+
+        window.location.href = "/equipment/findAllEquipment";
+    }
+
     function userCRUD() {
         window.location.href = "/user/userCRUDPage";
     }
@@ -29,6 +34,10 @@
 <hr>
 <button onclick="findAllUser()">查询所有用户</button>
 <span style="color: red">${msg_findAllUser.message}</span>
+<hr>
+<hr>
+<button onclick="findAllEquipment()">查询所有设备</button>
+<span style="color: red">${msg_findAllEquipment.message}</span>
 <hr>
 <button onclick="userCRUD()">用户CRUD</button>
 <span style="color: red">${msg_userCRUD.message}</span>

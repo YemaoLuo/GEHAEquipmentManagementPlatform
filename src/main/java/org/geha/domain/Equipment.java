@@ -6,10 +6,19 @@ package org.geha.domain;
 */
 
 public class Equipment {
+    private String inUse_str;
+
+    public String getInUse_str() {
+        return inUse_str;
+    }
 
     private int id;
     private String name;
     private Boolean inUse;
+
+    public void setInUse_str(String inUse_str) {
+        this.inUse_str = inUse_str;
+    }
 
     public Equipment(int id, String name, Boolean inUse) {
         this.id = id;
