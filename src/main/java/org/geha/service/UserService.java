@@ -21,4 +21,8 @@ public interface UserService {
     public void deleteUserByName(String name);
 
     public Msg insertUser(User user);
+
+    public Msg updateUser(User user);
+
+    public Msg changePasswordByName(User user);
 }

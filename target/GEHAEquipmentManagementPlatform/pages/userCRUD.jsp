@@ -55,18 +55,45 @@
     &nbsp <input type="submit" value="添加">
 </form>
 <span style="color: red" id="msg_insertUser">${msg_insertUser.message}</span>
+<br>
+<hr>
+<h1>Update</h1>
+<form id="update" method="post" action="/user/updateUser" onsubmit="return checkUpdate()">
+    <span style="color: red">*</span> <input name="name" placeholder="name" id="name_u"><br>
+    <span style="color: red">*</span> <input name="gender" placeholder="gender" id="gender_u"><br>
+    <span style="color: red">*</span> <input name="role" placeholder="role" id="role_u"><br>
+    &nbsp <input name="year" placeholder="year"><br>
+    &nbsp <input name="password" placeholder="password"><br>
+    &nbsp <input name="phone" placeholder="phone"><br>
+    &nbsp <input name="email" placeholder="email"><br>
+    &nbsp <input type="submit" value="修改">
+</form>
+<span style="color: red" id="msg_updateUser">${msg_updateUser.message}</span>
 </body>
 </html>
 <script>
-    function checkInsert(){
+    function checkInsert() {
         let flag = confirm("确认提交吗？");
         let name = document.getElementById("name").value;
         let gender = document.getElementById("gender").value;
         let role = document.getElementById("role").value;
         //不可以单纯对比null 好像为undefined
-        if (!!!name || !!!gender || !!!role){
+        if (!!!name || !!!gender || !!!role) {
             flag = false;
             document.getElementById("msg_insertUser").innerText = "缺少必要信息";
+        }
+        return flag;
+    }
+
+    function checkUpdate() {
+        let flag = confirm("确认更改吗？");
+        let name = document.getElementById("name_u").value;
+        let gender = document.getElementById("gender_u").value;
+        let role = document.getElementById("role_u").value;
+        //不可以单纯对比null 好像为undefined
+        if (!!!name || !!!gender || !!!role) {
+            flag = false;
+            document.getElementById("msg_updateUser").innerText = "缺少必要信息";
         }
         return flag;
     }

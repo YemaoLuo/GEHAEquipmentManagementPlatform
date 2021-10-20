@@ -19,7 +19,7 @@
 <body>
 <button id="back">返回</button>
 <hr>
-<table  border="1" cellspacing="0" cellpadding="3">
+<table border="1" cellspacing="0" cellpadding="3">
     <tr>
         <th>用户名</th>
         <th>性别</th>

@@ -119,4 +119,24 @@ public class UserController {
         modelAndView.addObject("msg_insertUser", msg);
         return modelAndView;
     }
+
+    @RequestMapping("/updateUser")
+    public ModelAndView updateUser(User user) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = userService.updateUser(user);
+        modelAndView.setViewName("/pages/userCRUD.jsp");
+        modelAndView.addObject("msg_updateUser", msg);
+        return modelAndView;
+    }
+
+    @RequestMapping("/changePasswordByName")
+    public ModelAndView changePasswordByName(String password, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        User user = (User) session.getAttribute("user");
+        user.setPassword(password);
+        Msg msg = userService.changePasswordByName(user);
+        modelAndView.setViewName("/pages/home.jsp");
+        modelAndView.addObject("msg_changePasswordByName", msg);
+        return modelAndView;
+    }
 }

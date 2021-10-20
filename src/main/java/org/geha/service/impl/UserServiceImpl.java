@@ -55,4 +55,28 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+
+    @Override
+    public Msg updateUser(User user) {
+        Msg msg = new Msg();
+        User userByName = userMapper.findUserByName(user.getName());
+        if (userByName == null) {
+            msg.setCode(false);
+            msg.setMessage("用户不存在");
+        } else {
+            userMapper.updateUser(user);
+            msg.setCode(true);
+            msg.setMessage("修改成功");
+        }
+        return msg;
+    }
+
+    @Override
+    public Msg changePasswordByName(User user) {
+        Msg msg = new Msg();
+        userMapper.changePasswordByName(user);
+        msg.setCode(true);
+        msg.setMessage("更改成功");
+        return msg;
+    }
 }
