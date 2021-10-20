@@ -12,4 +12,8 @@ import java.util.List;
 public interface EquipmentService {
 
     public List<Equipment> findAll();
+
+    public List<Equipment> findEquipmentByName(Equipment equipment);
+
+    public Equipment checkExist(String name);
 }

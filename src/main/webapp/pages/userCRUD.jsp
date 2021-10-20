@@ -9,6 +9,8 @@
     <title>userCRUD</title>
 </head>
 <body>
+<button id="back">返回</button>
+<hr>
 <h1>Search</h1>
 <form method="post" action="/user/findUserByName">
     <input name="name" placeholder="name">
@@ -96,5 +98,12 @@
             document.getElementById("msg_updateUser").innerText = "缺少必要信息";
         }
         return flag;
+    }
+</script>
+<script>
+    window.onload = function () {
+        document.getElementById("back").onclick = function () {
+            location.href = "/user/toHome";
+        }
     }
 </script>

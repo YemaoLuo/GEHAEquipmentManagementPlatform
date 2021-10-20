@@ -24,6 +24,18 @@ public class EquipmentController {
     @Autowired
     private EquipmentService equipmentService;
 
+    //转换01->状态
+    public List<Equipment> addInUse_str(List<Equipment> equipmentList) {
+        for (int i = 0; i < equipmentList.size(); i++) {
+            if (equipmentList.get(i).getInUse()) {
+                equipmentList.get(i).setInUse_str("在库");
+            } else {
+                equipmentList.get(i).setInUse_str("借出");
+            }
+        }
+        return equipmentList;
+    }
+
     @RequestMapping("/findAllEquipment")
     public ModelAndView findAllEquipment() {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,16 +45,10 @@ public class EquipmentController {
             modelAndView.setViewName("/pages/home.jsp");
             msg.setCode(false);
             msg.setMessage("出现未知错误");
-            modelAndView.addObject("msg_findAllEquipment");
+            modelAndView.addObject("msg_findAllEquipment", msg);
         } else {
             modelAndView.setViewName("/pages/equipmentList.jsp");
-            for (int i = 0; i < equipmentList.size(); i++) {
-                if (equipmentList.get(i).getInUse()) {
-                    equipmentList.get(i).setInUse_str("在库");
-                } else {
-                    equipmentList.get(i).setInUse_str("借出");
-                }
-            }
+            equipmentList = addInUse_str(equipmentList);
             modelAndView.addObject("equipmentList", equipmentList);
         }
         return modelAndView;
@@ -63,5 +69,31 @@ public class EquipmentController {
             modelAndView.setViewName("/pages/home.jsp");
             return modelAndView;
         }
+    }
+
+    @RequestMapping("/findEquipmentByName")
+    public ModelAndView findEquipmentByName(Equipment equipment) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        Equipment equipmentExist = equipmentService.checkExist(equipment.getName());
+        if (equipmentExist != null) {
+            List<Equipment> equipmentByName = equipmentService.findEquipmentByName(equipment);
+            equipmentByName = addInUse_str(equipmentByName);
+            modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+            modelAndView.addObject("equipment_findEquipmentByName", equipmentByName);
+        } else {
+            msg.setCode(false);
+            msg.setMessage("设备不存在");
+            modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+            modelAndView.addObject("msg_findEquipmentByName", msg);
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping("/toHome")
+    public ModelAndView toHome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/pages/home.jsp");
+        return modelAndView;
     }
 }

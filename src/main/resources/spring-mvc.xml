@@ -25,6 +25,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/equipment/**"/>
             <mvc:exclude-mapping path="/user/login"/>
             <bean class="org.geha.interceptor.PrivilegeInterceptor"/>
         </mvc:interceptor>

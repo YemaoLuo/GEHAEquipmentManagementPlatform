@@ -23,4 +23,14 @@ public class EquipmentServiceImpl implements EquipmentService {
     public List<Equipment> findAll() {
         return equipmentMapper.findAll();
     }
+
+    @Override
+    public List<Equipment> findEquipmentByName(Equipment equipment) {
+        return equipmentMapper.findEquipmentByName(equipment);
+    }
+
+    @Override
+    public Equipment checkExist(String name) {
+        return equipmentMapper.checkExist(name);
+    }
 }

@@ -14,4 +14,10 @@ public interface EquipmentMapper {
 
     @Select("select * from equipment")
     public List<Equipment> findAll();
+
+    @Select("select * from equipment where name = #{name}")
+    public List<Equipment> findEquipmentByName(Equipment equipment);
+
+    @Select("select * from equipment where name = #{name} LIMIT 1")
+    public Equipment checkExist(String name);
 }

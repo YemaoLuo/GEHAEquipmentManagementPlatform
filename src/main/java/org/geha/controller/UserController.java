@@ -139,4 +139,11 @@ public class UserController {
         modelAndView.addObject("msg_changePasswordByName", msg);
         return modelAndView;
     }
+
+    @RequestMapping("/toHome")
+    public ModelAndView toHome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/pages/home.jsp");
+        return modelAndView;
+    }
 }
