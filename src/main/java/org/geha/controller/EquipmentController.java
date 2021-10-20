@@ -7,12 +7,14 @@ package org.geha.controller;
 
 import org.geha.domain.Equipment;
 import org.geha.domain.Msg;
+import org.geha.domain.User;
 import org.geha.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -44,5 +46,22 @@ public class EquipmentController {
             modelAndView.addObject("equipmentList", equipmentList);
         }
         return modelAndView;
+    }
+
+    @RequestMapping("/equipmentCRUDPage")
+    public ModelAndView equipmentCRUDPage(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = new Msg();
+        User user = (User) session.getAttribute("user");
+        if (user.getRole().equals("管理员")) {
+            modelAndView.setViewName("/pages/equipmentCRUD.jsp");
+            return modelAndView;
+        } else {
+            msg.setCode(false);
+            msg.setMessage("您没有权限");
+            modelAndView.addObject("msg_equipmentCRUD", msg);
+            modelAndView.setViewName("/pages/home.jsp");
+            return modelAndView;
+        }
     }
 }

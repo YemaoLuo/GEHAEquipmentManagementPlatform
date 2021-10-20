@@ -18,6 +18,10 @@
         window.location.href = "/user/userCRUDPage";
     }
 
+    function equipmentCRUD() {
+        window.location.href = "/equipment/equipmentCRUDPage";
+    }
+
     function changePassword() {
         let password = prompt("新密码：");
         window.location.href = "/user/changePasswordByName?password=" + password;
@@ -41,5 +45,8 @@
 <hr>
 <button onclick="userCRUD()">用户CRUD</button>
 <span style="color: red">${msg_userCRUD.message}</span>
+<hr>
+<button onclick="equipmentCRUD()">设备CRUD</button>
+<span style="color: red">${msg_equipmentCRUD.message}</span>
 </body>
 </html>
