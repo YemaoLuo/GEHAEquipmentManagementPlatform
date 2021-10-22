@@ -62,4 +62,12 @@ public class BRController {
         modelAndView.setViewName("/pages/BRCRUD.jsp");
         return modelAndView;
     }
+
+    @RequestMapping("/BRList")
+    public ModelAndView BRList() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("BRList", brService.BRList());
+        modelAndView.setViewName("/pages/BRList.jsp");
+        return modelAndView;
+    }
 }

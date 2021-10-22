@@ -34,6 +34,8 @@
     <input type="submit" value="归还">
     <span style="color: red">${msg_rEquipment.message}</span>
 </form>
+<br>
+<hr>
 <div style="position: fixed; bottom: 1px;">
     <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>

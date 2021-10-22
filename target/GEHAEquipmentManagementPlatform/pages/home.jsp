@@ -30,6 +30,10 @@
     function BRCRUD() {
         window.location.href = "/br/BRCRUDPage";
     }
+
+    function BRList(){
+        window.location.href = "/br/BRList";
+    }
 </script>
 <html>
 <head>
@@ -53,6 +57,8 @@
 <span style="color: red">${msg_equipmentCRUD.message}</span>
 <hr>
 <button onclick="BRCRUD()">设备借还</button>
+<hr>
+<button onclick="BRList()">借环情况</button>
 <div style="position: fixed; bottom: 1px;">
     <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>

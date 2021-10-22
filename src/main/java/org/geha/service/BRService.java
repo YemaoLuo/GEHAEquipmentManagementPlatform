@@ -5,6 +5,7 @@ package org.geha.service;
   Time: 9:26
 */
 
+import org.geha.domain.BR;
 import org.geha.domain.Equipment;
 import org.geha.domain.Msg;
 import org.geha.domain.User;
@@ -20,4 +21,6 @@ public interface BRService {
     public Msg returnById(User user, int id);
 
     public List<Equipment> notREquipment(User user);
+
+    public List<BR> BRList();
 }
