@@ -26,6 +26,10 @@
         let password = prompt("新密码：");
         window.location.href = "/user/changePasswordByName?password=" + password;
     }
+
+    function BRCRUD() {
+        window.location.href = "/br/BRCRUDPage";
+    }
 </script>
 <html>
 <head>
@@ -39,7 +43,6 @@
 <button onclick="findAllUser()">查询所有用户</button>
 <span style="color: red">${msg_findAllUser.message}</span>
 <hr>
-<hr>
 <button onclick="findAllEquipment()">查询所有设备</button>
 <span style="color: red">${msg_findAllEquipment.message}</span>
 <hr>
@@ -48,6 +51,8 @@
 <hr>
 <button onclick="equipmentCRUD()">设备CRUD</button>
 <span style="color: red">${msg_equipmentCRUD.message}</span>
+<hr>
+<button onclick="BRCRUD()">设备借还</button>
 <div style="position: fixed; bottom: 1px;">
     <span style="font-size: 20px; text-align: center">@CopyRight GEHA GDSYZX 2021</span>
 </div>
