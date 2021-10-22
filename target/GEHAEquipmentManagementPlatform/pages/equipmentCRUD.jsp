@@ -54,9 +54,9 @@
 <form id="update" method="post" action="/equipment/updateEquipment" onsubmit="return checkUpdate()">
     <span style="color: red">*</span> <input name="id" placeholder="id" id="id_u"><br>
     <span style="color: red">*</span> <select name="inUse" id="inUse_u">
-        <option value="true">在库</option>
-        <option value="false">借出</option>
-    </select><br>
+    <option value="true">在库</option>
+    <option value="false">借出</option>
+</select><br>
     &nbsp <input type="submit" value="修改">
 </form>
 <span style="color: red" id="msg_updateUser">${msg_updateEquipment.message}</span>

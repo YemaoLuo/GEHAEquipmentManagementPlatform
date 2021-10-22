@@ -16,4 +16,8 @@ public interface BRService {
     public List<Equipment> findAllNotInUse();
 
     public Msg borrowById(User user, int id);
+
+    public Msg returnById(User user, int id);
+
+    public List<Equipment> notREquipment(User user);
 }

@@ -34,4 +34,5 @@ public interface EquipmentMapper {
 
     @Select("select * from equipment where id = #{id}")
     public Equipment checkExistById(int id);
+
 }

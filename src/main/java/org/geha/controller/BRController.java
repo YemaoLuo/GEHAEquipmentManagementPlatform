@@ -27,10 +27,11 @@ public class BRController {
     private EquipmentService equipmentService;
 
     @RequestMapping("/BRCRUDPage")
-    public ModelAndView BRCRUDPage() {
+    public ModelAndView BRCRUDPage(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/pages/BRCRUD.jsp");
         modelAndView.addObject("NotInUseList", brService.findAllNotInUse());
+        modelAndView.addObject("notREquipment", brService.notREquipment((User) session.getAttribute("user")));
         return modelAndView;
     }
 
@@ -42,10 +43,23 @@ public class BRController {
         modelAndView.setViewName("/pages/BRCRUD.jsp");
         Equipment equipment = new Equipment();
         equipment.setId(id);
-        equipment.setInUse(Boolean.FALSE);
+        equipment.setInUse(false);
         equipmentService.updateEquipment(equipment);
         modelAndView.addObject("msg_bEquipment", msg);
         modelAndView.addObject("NotInUseList", brService.findAllNotInUse());
+        modelAndView.addObject("notREquipment", brService.notREquipment(user));
+        return modelAndView;
+    }
+
+    @RequestMapping("/rEquipment")
+    public ModelAndView rEquipment(int id, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        ModelAndView modelAndView = new ModelAndView();
+        Msg msg = brService.returnById(user, id);
+        modelAndView.addObject("rEquipment", msg);
+        modelAndView.addObject("NotInUseList", brService.findAllNotInUse());
+        modelAndView.addObject("notREquipment", brService.notREquipment(user));
+        modelAndView.setViewName("/pages/BRCRUD.jsp");
         return modelAndView;
     }
 }
