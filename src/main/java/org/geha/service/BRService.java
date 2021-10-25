@@ -23,4 +23,6 @@ public interface BRService {
     public List<Equipment> notREquipment(User user);
 
     public List<BR> BRList();
+
+    public Boolean checkNull();
 }

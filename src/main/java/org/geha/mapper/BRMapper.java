@@ -31,4 +31,7 @@ public interface BRMapper {
 
     @Select("select * from br")
     public List<BRSQL> findAll();
+
+    @Select("select count(*) from br")
+    public int selectCount();
 }

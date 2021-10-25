@@ -38,7 +38,8 @@
 <br>
 <hr>
 <h1>Delete</h1>
-<form method="post" action="${pageContext.request.contextPath}/user/deleteUserByName" onsubmit="return confirm('确认删除吗?')">
+<form method="post" action="${pageContext.request.contextPath}/user/deleteUserByName"
+      onsubmit="return confirm('确认删除吗?')">
     <input name="name" placeholder="name">
     <input type="submit" value="删除">
 </form>
@@ -46,7 +47,8 @@
 <br>
 <hr>
 <h1>Insert</h1>
-<form id="insert" method="post" action="${pageContext.request.contextPath}/user/insertUser" onsubmit="return checkInsert()">
+<form id="insert" method="post" action="${pageContext.request.contextPath}/user/insertUser"
+      onsubmit="return checkInsert()">
     <span style="color: red">*</span> <input name="name" placeholder="name" id="name"><br>
     <span style="color: red">*</span> <input name="gender" placeholder="gender" id="gender"><br>
     <span style="color: red">*</span> <input name="role" placeholder="role" id="role"><br>
@@ -60,7 +62,8 @@
 <br>
 <hr>
 <h1>Update</h1>
-<form id="update" method="post" action="${pageContext.request.contextPath}/user/updateUser" onsubmit="return checkUpdate()">
+<form id="update" method="post" action="${pageContext.request.contextPath}/user/updateUser"
+      onsubmit="return checkUpdate()">
     <span style="color: red">*</span> <input name="name" placeholder="name" id="name_u"><br>
     <span style="color: red">*</span> <input name="gender" placeholder="gender" id="gender_u"><br>
     <span style="color: red">*</span> <input name="role" placeholder="role" id="role_u"><br>

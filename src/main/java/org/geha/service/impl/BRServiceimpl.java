@@ -71,7 +71,7 @@ public class BRServiceimpl implements BRService {
     @Override
     public List<BR> BRList() {
         List<BRSQL> BRSQLList = brMapper.findAll();
-        List<BR> brList = new ArrayList<BR>();
+        List<BR> brList = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         for (int i = 0; i < BRSQLList.size(); i++) {
             BR br = new BR();
@@ -86,5 +86,13 @@ public class BRServiceimpl implements BRService {
             brList.add(br);
         }
         return brList;
+    }
+
+    @Override
+    public Boolean checkNull() {
+        if (brMapper.selectCount() == 0) {
+            return false;
+        }
+        return true;
     }
 }
