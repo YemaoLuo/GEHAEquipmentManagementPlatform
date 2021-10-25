@@ -6,33 +6,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script>
     function findAllUser() {
-        window.location.href = "/user/findAllUser";
+        window.location.href = "${pageContext.request.contextPath}/user/findAllUser";
     }
 
     function findAllEquipment() {
 
-        window.location.href = "/equipment/findAllEquipment";
+        window.location.href = "${pageContext.request.contextPath}/equipment/findAllEquipment";
     }
 
     function userCRUD() {
-        window.location.href = "/user/userCRUDPage";
+        window.location.href = "${pageContext.request.contextPath}/user/userCRUDPage";
     }
 
     function equipmentCRUD() {
-        window.location.href = "/equipment/equipmentCRUDPage";
+        window.location.href = "${pageContext.request.contextPath}/equipment/equipmentCRUDPage";
     }
 
     function changePassword() {
         let password = prompt("新密码：");
-        window.location.href = "/user/changePasswordByName?password=" + password;
+        window.location.href = "${pageContext.request.contextPath}/user/changePasswordByName?password=" + password;
+    }
+
+    function logOut() {
+        window.location.href = "${pageContext.request.contextPath}/user/logOut";
     }
 
     function BRCRUD() {
-        window.location.href = "/br/BRCRUDPage";
+        window.location.href = "${pageContext.request.contextPath}/br/BRCRUDPage";
     }
 
     function BRList() {
-        window.location.href = "/br/BRList";
+        window.location.href = "${pageContext.request.contextPath}/br/BRList";
     }
 </script>
 <html>
@@ -42,6 +46,7 @@
 <body>
 <h1>this is home hello ${user.name} !
     <button id="changePassword" onclick="changePassword()">更改密码</button>
+    <button id="logOut" onclick="logOut()">退出登录</button>
     <span style="color: red">${msg_changePasswordByName.message}</span></h1>
 <hr>
 <button onclick="findAllUser()">查询所有用户</button>

@@ -33,7 +33,7 @@
 <script>
     window.onload = function () {
         document.getElementById("back").onclick = function () {
-            location.href = "/equipment/toHome";
+            location.href = "${pageContext.request.contextPath}/equipment/toHome";
         }
     }
 </script>

@@ -13,7 +13,7 @@
 <button id="back">返回</button>
 <hr>
 <h1>借设备</h1>
-<form action="/br/bEquipment" method="post">
+<form action="${pageContext.request.contextPath}/br/bEquipment" method="post">
     <select name="id">
         <c:forEach items="${NotInUseList}" var="equipment">
             <option value="${equipment.id}">${equipment.id}.${equipment.name}</option>
@@ -25,7 +25,7 @@
 <br>
 <hr>
 <h1>还设备</h1>
-<form action="/br/rEquipment" method="post">
+<form action="${pageContext.request.contextPath}/br/rEquipment" method="post">
     <select name="id">
         <c:forEach items="${notREquipment}" var="equipment">
             <option value="${equipment.id}">${equipment.id}.${equipment.name}</option>
@@ -44,7 +44,7 @@
 <script>
     window.onload = function () {
         document.getElementById("back").onclick = function () {
-            location.href = "/equipment/toHome";
+            location.href = "${pageContext.request.contextPath}/equipment/toHome";
         }
     }
 </script>

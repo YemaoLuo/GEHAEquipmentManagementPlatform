@@ -40,6 +40,14 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping("/logOut")
+    public ModelAndView logOut(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/login.jsp");
+        session.removeAttribute("user");
+        return modelAndView;
+    }
+
     @RequestMapping("/findAllUser")
     public ModelAndView findAllUser(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();

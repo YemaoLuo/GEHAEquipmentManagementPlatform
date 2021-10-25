@@ -13,7 +13,7 @@
 <button id="back">返回</button>
 <hr>
 <h1>Search</h1>
-<form method="post" action="/equipment/findEquipmentByName">
+<form method="post" action="${pageContext.request.contextPath}/equipment/findEquipmentByName">
     <input name="name" placeholder="name">
     <input type="submit" value="查询">
 </form>
@@ -35,7 +35,8 @@
 <br>
 <hr>
 <h1>Delete</h1>
-<form method="post" action="/equipment/deleteEquipmentByName" onsubmit="return confirm('确认删除吗?')">
+<form method="post" action="${pageContext.request.contextPath}/equipment/deleteEquipmentByName"
+      onsubmit="return confirm('确认删除吗?')">
     <input name="name" placeholder="name">
     <input type="submit" value="删除">
 </form>
@@ -43,7 +44,8 @@
 <br>
 <hr>
 <h1>Insert</h1>
-<form id="insert" method="post" action="/equipment/insertEquipment" onsubmit="return checkInsert()">
+<form id="insert" method="post" action="${pageContext.request.contextPath}/equipment/insertEquipment"
+      onsubmit="return checkInsert()">
     <span style="color: red">*</span> <input name="name" placeholder="name" id="name"><br>
     &nbsp <input type="submit" value="添加">
 </form>
@@ -51,7 +53,8 @@
 <br>
 <hr>
 <h1>Update</h1>
-<form id="update" method="post" action="/equipment/updateEquipment" onsubmit="return checkUpdate()">
+<form id="update" method="post" action="${pageContext.request.contextPath}/equipment/updateEquipment"
+      onsubmit="return checkUpdate()">
     <span style="color: red">*</span> <input name="id" placeholder="id" id="id_u"><br>
     <span style="color: red">*</span> <select name="inUse" id="inUse_u">
     <option value="true">在库</option>
@@ -92,7 +95,7 @@
 <script>
     window.onload = function () {
         document.getElementById("back").onclick = function () {
-            location.href = "/equipment/toHome";
+            location.href = "${pageContext.request.contextPath}/equipment/toHome";
         }
     }
 </script>
