@@ -4,6 +4,7 @@
   Time: 15:11
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon"/>
 <html>
 <head>
     <title>userCRUD</title>

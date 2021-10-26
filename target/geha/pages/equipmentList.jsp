@@ -5,6 +5,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon" />
 <script>
     window.onload = function () {
         document.getElementById("back").onclick = function () {

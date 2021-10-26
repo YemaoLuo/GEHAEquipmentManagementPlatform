@@ -4,6 +4,7 @@
   Time: 23:04
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon"/>
 <html>
 <head>
     <title>WElCOME</title>
