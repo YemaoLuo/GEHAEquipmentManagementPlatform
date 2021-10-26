@@ -4,10 +4,10 @@
   Time: 10:34
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon" />
 <html>
 <head>
     <title>航空社设备管理平台</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo.ico"/>
 </head>
 <body>
 <div style="margin-top: 250px; font-size: 30px; text-align: center; alignment: center">广东实验中学航空社团设备管理平台</div>

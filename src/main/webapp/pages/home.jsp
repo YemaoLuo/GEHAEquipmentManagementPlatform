@@ -4,7 +4,6 @@
   Time: 16:52
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon"/>
 <script>
     function findAllUser() {
         window.location.href = "${pageContext.request.contextPath}/user/findAllUser";
@@ -43,6 +42,7 @@
 <html>
 <head>
     <title>home</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo.ico"/>
 </head>
 <body>
 <h1>this is home hello ${user.name} !

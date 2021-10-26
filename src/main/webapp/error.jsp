@@ -4,12 +4,11 @@
   Time: 9:57
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
-<link rel="shortcut icon" href="img/logo.png" rel="external nofollow" type="image/x-icon"/>
 <html>
 <head>
     <meta charset="utf-8">
     <title>哎呀!有BUG出现啦！</title>
-
+    <link rel="shortcut icon" type="image/x-icon" href="/img/logo.ico"/>
     <style>
         body {
             background: #000;
