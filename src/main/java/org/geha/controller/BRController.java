@@ -40,15 +40,21 @@ public class BRController {
         ModelAndView modelAndView = new ModelAndView();
         User user = (User) session.getAttribute("user");
         Msg msg = brService.borrowById(user, id);
-        modelAndView.setViewName("/pages/BRCRUD.jsp");
-        Equipment equipment = new Equipment();
-        equipment.setId(id);
-        equipment.setInUse(false);
-        equipmentService.updateEquipment(equipment);
-        modelAndView.addObject("msg_bEquipment", msg);
-        modelAndView.addObject("NotInUseList", brService.findAllNotInUse());
-        modelAndView.addObject("notREquipment", brService.notREquipment(user));
-        return modelAndView;
+        if (msg.getCode()) {
+            modelAndView.setViewName("/pages/BRCRUD.jsp");
+            Equipment equipment = new Equipment();
+            equipment.setId(id);
+            equipment.setInUse(false);
+            equipmentService.updateEquipment(equipment);
+            modelAndView.addObject("msg_bEquipment", msg);
+            modelAndView.addObject("NotInUseList", brService.findAllNotInUse());
+            modelAndView.addObject("notREquipment", brService.notREquipment(user));
+            return modelAndView;
+        } else {
+            modelAndView.addObject("msg_bEquipment", msg);
+            modelAndView.setViewName("/pages/BRCRUD.jsp");
+            return modelAndView;
+        }
     }
 
     @RequestMapping("/rEquipment")

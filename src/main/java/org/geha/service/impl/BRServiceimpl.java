@@ -36,10 +36,15 @@ public class BRServiceimpl implements BRService {
 
     @Override
     public Msg borrowById(User user, int id) {
-        Msg msg = new Msg("借用成功", true);
-        Date date = Calendar.getInstance().getTime();
-        brMapper.borrowById(user.getId(), id, date, false);
-        return msg;
+        if (equipmentMapper.checkStatus(id)) {
+            Msg msg = new Msg("借用成功", true);
+            Date date = Calendar.getInstance().getTime();
+            brMapper.borrowById(user.getId(), id, date, false);
+            return msg;
+        } else {
+            Msg msg = new Msg("借用失败", false);
+            return msg;
+        }
     }
 
     @Override
